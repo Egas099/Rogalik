@@ -534,7 +534,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1663601256}
+      - m_Target: {fileID: 199708210}
         m_MethodName: SliderEvents
         m_Mode: 2
         m_Arguments:
@@ -1272,13 +1272,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 199708209}
+  - component: {fileID: 199708210}
   m_Layer: 0
   m_Name: Main menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &199708209
 Transform:
   m_ObjectHideFlags: 0
@@ -1298,6 +1299,21 @@ Transform:
   m_Father: {fileID: 666442276}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &199708210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199708208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87bd7c80ba22acb4b8e94129e69742a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sl: {fileID: 84578628}
+  vol: {fileID: 2057287031}
+  volClick: {fileID: 2057287032}
 --- !u!1 &201918374
 GameObject:
   m_ObjectHideFlags: 0
@@ -3758,7 +3774,6 @@ GameObject:
   - component: {fileID: 744609225}
   - component: {fileID: 744609224}
   - component: {fileID: 744609227}
-  - component: {fileID: 744609226}
   m_Layer: 5
   m_Name: Exet
   m_TagString: Untagged
@@ -3825,18 +3840,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 744609222}
   m_CullTransparentMesh: 0
---- !u!114 &744609226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 744609222}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8b93a08f8b12ec48b29f927763ed38c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &744609227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3913,9 +3916,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 744609222}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 199708210}
+        m_MethodName: GameQuit
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6539,17 +6542,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 860525421}
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1355476640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7658,17 +7650,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 860525421}
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!222 &1541917764
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7770,7 +7751,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1563024225
 Transform:
   m_ObjectHideFlags: 0
