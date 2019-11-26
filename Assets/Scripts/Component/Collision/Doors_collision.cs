@@ -39,7 +39,6 @@ public class Doors_collision : MonoBehaviour // Перемещает игрок�
         aud_pass_through.Play();
     }
     void OnCollisionEnter2D(Collision2D other) {
-        
         if(other.gameObject.tag == "Player")
         {
             if(open == true){

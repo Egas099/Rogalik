@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -3618720741660396563}
   - component: {fileID: 3543135772969907373}
   - component: {fileID: 5013513935770402633}
+  - component: {fileID: -3032235460961383927}
   m_Layer: 0
   m_Name: Worm
   m_TagString: Monster
@@ -49,6 +50,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -118,17 +120,19 @@ MonoBehaviour:
   damage: 1
   attack_speed: 4
   speed: 0
+  lifetime: 0
   number_keys: 0
+  End_UI: {fileID: 0}
   attack_system: {fileID: 3543135772969907373}
   greeting: {fileID: 0}
   aud_move: {fileID: 0}
   health_down: {fileID: 0}
   health_up: {fileID: 0}
   destroy_shell: {fileID: 0}
-  range_attack: {fileID: 0}
+  range_attack: {fileID: -3032235460961383927}
   melee_attack: {fileID: 0}
   low_health: {fileID: 0}
-  aud_die: {fileID: 0}
+  aud_die: {fileID: 8300000, guid: e3d158e63a77754429d48ec0a6c9081f, type: 3}
   die_obj: {fileID: 2919365524781038952, guid: af3ad385654457241a1411100da2d9cb, type: 3}
 --- !u!114 &3543135772969907373
 MonoBehaviour:
@@ -156,3 +160,99 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e43f23b49adba104eafd11340078ba8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &-3032235460961383927
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5484720490559985854}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 4d97b8072842c8544a5c6009a166cf56, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

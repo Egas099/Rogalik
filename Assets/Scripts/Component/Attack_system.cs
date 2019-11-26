@@ -22,18 +22,16 @@ public class Attack_system : MonoBehaviour { // Система атаки. Ос�
         last_fire_melle = Time.time;
     }
     public void Fire(Vector3 position,Vector2 direction){    // Выстреливает из position в сторону direction
-        // if(attack_type == "Range"){
-            if ((last_fire_range + (6/entity.attack_speed))  < Time.time)
-            {
-                last_fire_range = Time.time;
-                if(entity.range_attack!=null)
-                    entity.range_attack.Play();
-                created_shell = Instantiate(shell,position,Quaternion.identity);
-                created_shell.GetComponent<Shell_collision>().damage = entity.damage;
-                created_shell.GetComponent<Shell_collision>().owner = gameObject.tag;
-                created_shell.GetComponent<Rigidbody2D>().AddForce(direction);
-            }   
-        // }
+        if ((last_fire_range + (6/entity.attack_speed))  < Time.time)
+        {
+            last_fire_range = Time.time;
+            if(entity.range_attack!=null)
+                entity.range_attack.Play();
+            created_shell = Instantiate(shell,position,Quaternion.identity);
+            created_shell.GetComponent<Shell_collision>().damage = entity.damage;
+            created_shell.GetComponent<Shell_collision>().owner = gameObject.tag;
+            created_shell.GetComponent<Rigidbody2D>().AddForce(direction);
+        }   
     }
     public void Fire(Vector3 position){ // Создаёт объект в position 
         if ((last_fire_range + (6/entity.attack_speed)) < Time.time)
@@ -45,6 +43,32 @@ public class Attack_system : MonoBehaviour { // Система атаки. Ос�
                 if (created_shell.GetComponent<Entity>() != null)
                     created_shell.GetComponent<Entity>().enable = true;
             }
+    }
+    public void Fire(Vector3 position,Vector2 direction, string type){    // Выстреливает из position в сторону direction
+        switch(type)
+        {
+            case "triple":
+                if ((last_fire_range + (6/entity.attack_speed))  < Time.time)
+            {
+                last_fire_range = Time.time;
+                if(entity.range_attack!=null)
+                    entity.range_attack.Play();
+                created_shell = Instantiate(shell,position,Quaternion.identity);
+                created_shell.GetComponent<Shell_collision>().damage = entity.damage;
+                created_shell.GetComponent<Shell_collision>().owner = gameObject.tag;
+                created_shell.GetComponent<Rigidbody2D>().AddForce(direction);
+                created_shell = Instantiate(shell,position,Quaternion.identity);
+                created_shell.GetComponent<Shell_collision>().damage = entity.damage;
+                created_shell.GetComponent<Shell_collision>().owner = gameObject.tag;
+                created_shell.GetComponent<Rigidbody2D>().AddForce(new Vector2(direction.x+(direction.y*0.5f),direction.y-(direction.x*0.5f)));
+                created_shell = Instantiate(shell,position,Quaternion.identity);
+                created_shell.GetComponent<Shell_collision>().damage = entity.damage;
+                created_shell.GetComponent<Shell_collision>().owner = gameObject.tag;
+                created_shell.GetComponent<Rigidbody2D>().AddForce(new Vector2(direction.x-(direction.y*0.5f),direction.y+(direction.x*0.5f)));
+            }
+            break;
+            default: Debug.Log("Bad type of attack");break;
+        }
     }
     void OnCollisionStay2D(Collision2D other) { // Вызывается каждый кадр при столкновении с чем-нибудь
 

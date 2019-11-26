@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class Generator : MonoBehaviour
 {
+    public Sounds_manager s_m;
     private GameObject ban;
     public GameObject main_room;
     private GameObject[] bonus_room;
@@ -64,6 +65,8 @@ public class Generator : MonoBehaviour
         Clearing();
         Generation();
         gameObject.GetComponent<Checking_character_position>().Change_pos();
+        s_m.level_up.Play();
+        gameObject.GetComponent<Score_manager>().level++;
     }
     public void Generation(){
         use_character.transform.position = new Vector3(0,0,0);

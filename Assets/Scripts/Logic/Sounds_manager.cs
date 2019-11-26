@@ -10,7 +10,7 @@ public class Sounds_manager : MonoBehaviour
     public AudioSource take_coin;       //
     public AudioSource take_heard;      //
     public AudioSource take_key;        //
-
+    public AudioSource level_up;
     public AudioSource other;
 
     private void Start() {
