@@ -25,7 +25,7 @@ public class Score_manager : MonoBehaviour
             if (view_score < score)
             {
                 Text_out.fontSize = 82;
-                view_score += 1;
+                view_score += 2;
                 Show_score();
                 return;
             }

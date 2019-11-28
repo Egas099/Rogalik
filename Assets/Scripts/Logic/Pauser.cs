@@ -34,6 +34,7 @@ public class Pauser : MonoBehaviour
     }
     public void Return_main_menu(){
         pause = false;
+        souds_manager.SetActive(true);
         Time.timeScale = 1;
         GameObject.Find("logic").GetComponent<Generator>().ClearAll();
         pause_window.SetActive(false);
