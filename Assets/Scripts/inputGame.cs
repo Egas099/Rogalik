@@ -5,7 +5,7 @@ public class inputGame : MonoBehaviour
 {
 
     [SerializeField] private string fileName = "pizdec.settings";
-    [SerializeField] private but[] _input; // массив попок
+    [SerializeField] public but[] _input; // массив попок
 
     private static inputGame gameInput;
     public static inputGame Key
