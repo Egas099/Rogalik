@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Trap_Spikes : MonoBehaviour
+public class Spike_collision : MonoBehaviour
 {
     public float damage;
     public float attack_speed;

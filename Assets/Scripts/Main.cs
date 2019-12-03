@@ -6,15 +6,15 @@ using UnityEngine;
 
 public class Main : MonoBehaviour
 {
-
-    private float val = 1;
+    public float val = 1;
     private float save = 1;
     public Slider sl;
     public AudioSource vol;
     public AudioSource volClick;
-
+    public Sounds_manager sounds_Manager;
     public void Start()
     {
+        // sounds_Manager = GameObject.Find("SoundsManager").GetComponent<Sounds_manager>();
         val = PlayerPrefs.GetFloat("volume");
         sl.value = val;
         vol.volume = val;
@@ -42,6 +42,7 @@ public class Main : MonoBehaviour
             
             vol.volume = val;
             volClick.volume = val;
+            sounds_Manager.Change_music_vol();
         }
     }
 }

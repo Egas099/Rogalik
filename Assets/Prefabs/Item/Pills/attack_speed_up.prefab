@@ -14,6 +14,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -136,6 +137,11 @@ PrefabInstance:
       propertyPath: bite
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6277992873521336443, guid: b40a3dc904655774d851223d6dc0824a,
+        type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 017c756e355b78d4da1cd3de4db3725b, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b40a3dc904655774d851223d6dc0824a, type: 3}
 --- !u!1 &1825085403061976215 stripped

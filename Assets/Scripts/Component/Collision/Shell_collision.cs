@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class Shell_collision : MonoBehaviour
 {   
+    public AudioClip destroy_shell;   
     public float time_of_living;
+    [HideInInspector]
     public string owner;
+    [HideInInspector]
     public float damage;
+    [HideInInspector]
+    public Sounds_manager sounds_Manager;
+
     private void Start() {
         time_of_living = Time.time + time_of_living;
+        sounds_Manager = GameObject.Find("SoundsManager").GetComponent<Sounds_manager>();
+
     }
     private void FixedUpdate() {
         if(time_of_living < Time.time)
@@ -19,7 +27,8 @@ public class Shell_collision : MonoBehaviour
             if (other.gameObject.tag == "Monster")
             {
                 other.gameObject.GetComponent<Entity>().Stat_changed("health",-damage);
-                GameObject.FindWithTag("Player").GetComponent<Entity>().destroy_shell.Play();
+                if(!destroy_shell)
+                    sounds_Manager.Play_request(destroy_shell);
                 Destroy(gameObject);
             }
         }
@@ -34,7 +43,7 @@ public class Shell_collision : MonoBehaviour
     }
     void OnTriggerExit2D(Collider2D other) {
         if(other.gameObject.tag == "Room"){
-            GameObject.FindWithTag("Player").GetComponent<Entity>().destroy_shell.Play();
+            sounds_Manager.Play_request(destroy_shell);
             Destroy(gameObject);
         }
     }

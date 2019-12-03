@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class Pill_collision : MonoBehaviour
 {
-    public Sounds_manager s_m;
-    private void Start() {
-        s_m = GameObject.Find("SoundsManager").GetComponent<Sounds_manager>();
-    }
+    public AudioClip clip;
     private void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.tag == "Player")
         {
@@ -25,7 +22,7 @@ public class Pill_collision : MonoBehaviour
                 break;
                 default:break;
             }
-            s_m.bite.Play();
+            GameObject.Find("SoundsManager").GetComponent<Sounds_manager>().Play_request(clip);
             Destroy(gameObject);
         }
     }
