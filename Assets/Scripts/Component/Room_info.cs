@@ -24,15 +24,17 @@ public class Room_info : MonoBehaviour
                 return;
             if(child.tag == "Trap_button")
             {
-                if(child.GetComponent<Trap_button>().click == false)
+                if(child.GetComponent<Button_collision>().click == false)
                     return;
             }
         }
-        if((room_name == "Monster_room")||(room_name == "Boss_room"))
-        {
+        if(room_name == "Boss_room"){
             Drop();
             s_m.Boss_track(false);
-        }
+            }
+
+        if(room_name == "Monster_room")
+            Drop();
         Open_door();
         
     }

@@ -41,11 +41,8 @@ public class Controller : MonoBehaviour
             direction += new Vector2(1f*entity.speed,0);
         if (direction != Vector2.zero)
         {   
-            if ((last_step_time + step_time) < Time.time)
-            {
-                entity.aud_move.Play();
-                last_step_time = Time.time;
-            }
+            // if ((last_step_time + step_time) < Time.time)
+            //     last_step_time = Time.time;
             rb.AddForce(direction);
         }
     }

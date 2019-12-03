@@ -21,8 +21,8 @@ public class Generator : MonoBehaviour
 
     public GameObject[] character;
     private GameObject use_character;
-    public Random rnd = new Random();
-
+    private Random rnd = new Random();
+    public AudioClip new_level;
     private int xlen = 9, ylen = 9;
     public int room_limit_bonus = 3, room_limit_enemy = 10, room_limit_trap = 2;
     private int room_limit_all;
@@ -65,7 +65,7 @@ public class Generator : MonoBehaviour
         Clearing();
         Generation();
         gameObject.GetComponent<Checking_character_position>().Change_pos();
-        s_m.level_up.Play();
+        s_m.Play_request(new_level);
         gameObject.GetComponent<Score_manager>().level++;
     }
     public void Generation(){

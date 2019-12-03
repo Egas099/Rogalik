@@ -25,8 +25,9 @@ public class Attack_system : MonoBehaviour { // Система атаки. Ос�
         if ((last_fire_range + (6/entity.attack_speed))  < Time.time)
         {
             last_fire_range = Time.time;
-            if(entity.range_attack!=null)
-                entity.range_attack.Play();
+            if(entity.audio_range_attack!=null)
+                entity.sounds_Manager.Play_request(entity.audio_range_attack);
+
             created_shell = Instantiate(shell,position,Quaternion.identity);
             created_shell.GetComponent<Shell_collision>().damage = entity.damage;
             created_shell.GetComponent<Shell_collision>().owner = gameObject.tag;
@@ -37,8 +38,8 @@ public class Attack_system : MonoBehaviour { // Система атаки. Ос�
         if ((last_fire_range + (6/entity.attack_speed)) < Time.time)
             {
                 last_fire_range = Time.time;
-                if(entity.range_attack!=null)
-                    entity.range_attack.Play();
+                if(entity.audio_range_attack!=null)
+                    entity.sounds_Manager.Play_request(entity.audio_range_attack);
                 created_shell = Instantiate(shell,position,Quaternion.identity);
                 if (created_shell.GetComponent<Entity>() != null)
                     created_shell.GetComponent<Entity>().enable = true;
@@ -51,8 +52,9 @@ public class Attack_system : MonoBehaviour { // Система атаки. Ос�
                 if ((last_fire_range + (6/entity.attack_speed))  < Time.time)
             {
                 last_fire_range = Time.time;
-                if(entity.range_attack!=null)
-                    entity.range_attack.Play();
+                if(entity.audio_range_attack!=null)
+                    entity.sounds_Manager.Play_request(entity.audio_range_attack);
+
                 created_shell = Instantiate(shell,position,Quaternion.identity);
                 created_shell.GetComponent<Shell_collision>().damage = entity.damage;
                 created_shell.GetComponent<Shell_collision>().owner = gameObject.tag;

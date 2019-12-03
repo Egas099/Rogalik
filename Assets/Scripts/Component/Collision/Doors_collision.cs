@@ -7,18 +7,23 @@ using UnityEngine.UI;
 public class Doors_collision : MonoBehaviour // Перемещает игрока меж комнатами
 {
     public bool open = true;
-    public AudioSource aud_open;
-    public AudioSource aud_unlock;
-    public AudioSource aud_close;
-    public AudioSource aud_pass_through;
+    public AudioClip aud_open;
+    public AudioClip aud_unlock;
+    public AudioClip aud_close;
+    public AudioClip aud_pass_through;
     public SpriteRenderer sprite_rend;
     private Sprite[] sprites;
     private bool locked = false;
+    [HideInInspector]
     public Text amount;
+    [HideInInspector]
+    public Sounds_manager sounds_Manager;
+
     void Awake() {
         sprites = Resources.LoadAll<Sprite>("Doors");
     }
     private void Start() {
+        sounds_Manager = GameObject.Find("SoundsManager").GetComponent<Sounds_manager>();
         amount = GameObject.Find("Text_key").gameObject.GetComponent<Text>();
     }
     void Skip_charcter(Vector3 pos, Transform tr){
@@ -36,7 +41,7 @@ public class Doors_collision : MonoBehaviour // Перемещает игрок�
             tr.position = new Vector3(pos.x+1.7f,pos.y,pos.z);
             break;
         }
-        aud_pass_through.Play();
+        sounds_Manager.Play_request(aud_pass_through);
     }
     void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.tag == "Player")
@@ -63,7 +68,7 @@ public class Doors_collision : MonoBehaviour // Перемещает игрок�
         if (!locked)
         {
             if (aud_close != null)
-            aud_close.Play();
+            sounds_Manager.Play_request(aud_close);
         sprite_rend.sprite = sprites[0];
         open = false;
         }
@@ -85,7 +90,7 @@ public class Doors_collision : MonoBehaviour // Перемещает игрок�
         locked = false;
         open = true;
         sprite_rend.sprite = sprites[2];
-        aud_unlock.Play();
+        sounds_Manager.Play_request(aud_unlock);
     }
 }
 

@@ -9,14 +9,20 @@ public class Fly_AI : MonoBehaviour
     private Vector2 direction;
     private Rigidbody2D rb;
     private float speed;
+    private AudioSource fly;
     // Start is called before the first frame update
     void Start()
     {
         entity = GetComponent<Entity>();
+        fly = gameObject.AddComponent<AudioSource>();
+        fly.clip = entity.audio_move;
+        fly.mute = true;
+        fly.loop = true;
+        fly.volume = entity.sounds_Manager.SoundsSetting.val;
+        fly.Play();
         target = GameObject.FindGameObjectWithTag("Player").transform;
         speed = entity.speed;
         rb = GetComponent<Rigidbody2D>();
-        entity.aud_move.Play();
     }
 
     // Update is called once per frame
@@ -24,7 +30,7 @@ public class Fly_AI : MonoBehaviour
     {   
         if(entity.enable == true)
         {
-        entity.aud_move.mute = false;
+        fly.mute = false;
         direction = new Vector2(0,0);
         direction += new Vector2(((target.position.x-transform.position.x)/speed),((target.position.y-transform.position.y)/speed));
         rb.AddForce(direction);

@@ -121,16 +121,15 @@ MonoBehaviour:
   speed: 1
   number_keys: 0
   attack_system: {fileID: -2411391688960123441}
-  greeting: {fileID: 0}
-  aud_move: {fileID: -6696392757174655191}
-  health_down: {fileID: 0}
-  health_up: {fileID: 0}
-  destroy_shell: {fileID: 0}
-  range_attack: {fileID: 0}
-  melee_attack: {fileID: 0}
-  low_health: {fileID: 0}
-  aud_die: {fileID: 0}
+  audio_greeting: {fileID: 0}
+  audio_move: {fileID: 8300000, guid: 8804ac5f50d568a45aa21fc7a3b08d5b, type: 3}
+  audio_health_down: {fileID: 0}
+  audio_range_attack: {fileID: 0}
+  audio_melee_attack: {fileID: 0}
+  audio_low_health: {fileID: 0}
+  audio_die: {fileID: 0}
   die_obj: {fileID: 0}
+  sounds_Manager: {fileID: 0}
 --- !u!114 &-8319739177488846205
 MonoBehaviour:
   m_ObjectHideFlags: 0

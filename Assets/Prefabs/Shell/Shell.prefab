@@ -133,6 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c04ca0e3b9980e4f887694328739560, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroy_shell: {fileID: 8300000, guid: bb340ccd16436f04b93565d820908501, type: 3}
   time_of_living: 5
   owner: 
   damage: 0
+  sounds_Manager: {fileID: 0}

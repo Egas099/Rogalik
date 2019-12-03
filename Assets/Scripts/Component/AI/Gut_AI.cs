@@ -9,6 +9,7 @@ public class Gut_AI : MonoBehaviour
     private Vector2 target;
     private float speed;
     private float last_jump;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +29,7 @@ public class Gut_AI : MonoBehaviour
                 rb.AddForce(new Vector2(Random.Range(-4f, 4f),Random.Range(-4f, 4f)));
                 last_jump = Time.time;
                 entity.attack_system.Fire(new Vector3(transform.position.x,transform.position.y,transform.position.z+0.1f));
-                entity.aud_move.Play();
+                entity.sounds_Manager.Play_request(entity.audio_move);
             }
         }
     }

@@ -16,25 +16,22 @@ public class Entity : MonoBehaviour
     [HideInInspector]
     public Attack_system attack_system;
 
-    public AudioSource greeting;        // Приветствие
-    public AudioSource aud_move;        // Перемещение
-    public AudioSource health_down;     // Получение урона
-    public AudioSource health_up;       // Выздоровление
-    public AudioSource destroy_shell;   // Уничтожение снаряда
-    public AudioSource range_attack;    // Выстрел
-    public AudioSource melee_attack;    // Удар
-    public AudioSource low_health;
-    public AudioClip aud_die;
+    public AudioClip audio_greeting;        // Приветствие
+    public AudioClip audio_move;        // Перемещение
+    public AudioClip audio_health_down;     // Получение урона
+    public AudioClip audio_range_attack;    // Выстрел
+    public AudioClip audio_melee_attack;    // Удар
+    public AudioSource audio_low_health;
+    public AudioClip audio_die;
 
     public GameObject die_obj;
     private UI_hearts hearts_UI;
-    private Sounds_manager s_m;
-    // Start is called before the first frame update
-    // Update is called once per frame
+    [HideInInspector]
+    public Sounds_manager sounds_Manager;
     void Start()
     {
         hearts_UI = GameObject.Find("UI_heart").gameObject.GetComponent<UI_hearts>();
-        s_m = GameObject.Find("SoundsManager").GetComponent<Sounds_manager>();
+        sounds_Manager = GameObject.Find("SoundsManager").GetComponent<Sounds_manager>();
         attack_system = GetComponent<Attack_system>();
         if(gameObject.tag == "Player")
             hearts_UI.Change_hearts(health);
@@ -47,31 +44,16 @@ public class Entity : MonoBehaviour
     void Check_health()
     {
         if (health <= 0)
-        {
-            Die();
-        }
-        if (low_health != null)
-        {
-            if ((health/max_health)<0.30)
-                low_health.mute = false;
-            else
-                low_health.mute = true;
-        }
-        
+            Die();      
     }
     public void Stat_changed(string what, float how_much){ // Метод изменяющий характеристики сущности
         switch (what)
         {
             case "health":
-            if(how_much > 0)
+            if(how_much < 0)
             {
-                if(health_up != null)
-                    health_up.Play();
-            }
-            else
-            {
-                if(health_down != null)
-                    health_down.Play();
+                if(audio_health_down != null)
+                    sounds_Manager.Play_request(audio_health_down);
             }
             health += how_much;
             if(gameObject.tag == "Player")
@@ -93,16 +75,16 @@ public class Entity : MonoBehaviour
         if(enable == false)
         {
             enable = true;
-            if (greeting!=null)
-                greeting.Play();
+            if (audio_greeting!=null)
+                sounds_Manager.Play_request(audio_greeting);
         }
     }
     void Die(){
         enable = false;
         if (gameObject.tag == "Monster")
             GameObject.Find("logic").GetComponent<Score_manager>().Add_score(30);
-        if(aud_die!=null)
-            s_m.Play_pls(aud_die);
+        if(audio_die!=null)
+            sounds_Manager.Play_request(audio_die);
         if(gameObject.GetComponent<Drop>())
             gameObject.GetComponent<Drop>().Drop_(transform.position);
         if(die_obj)
