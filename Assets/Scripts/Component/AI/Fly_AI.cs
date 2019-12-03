@@ -30,6 +30,7 @@ public class Fly_AI : MonoBehaviour
     {   
         if(entity.enable == true)
         {
+        fly.volume = entity.sounds_Manager.SoundsSetting.val;
         fly.mute = false;
         direction = new Vector2(0,0);
         direction += new Vector2(((target.position.x-transform.position.x)/speed),((target.position.y-transform.position.y)/speed));
