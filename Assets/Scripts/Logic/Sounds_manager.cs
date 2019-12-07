@@ -13,6 +13,10 @@ public class Sounds_manager : MonoBehaviour
         main_music.volume = SoundsSetting.val;
         boss_music.volume = SoundsSetting.val;
     }
+    public void Change_music_vol(float volumea){
+        main_music.volume = volumea;
+        boss_music.volume = volumea;
+    }
     public void Boss_track(bool action){
         if (action){
             main_music.Stop();

@@ -11,6 +11,7 @@ public class Score_manager : MonoBehaviour
     public float score = 0;
     private float view_score = 0;
     private bool run = false;
+    public Highscores scores;
     // Start is called before the first frame update
     void Start(){
         Show_score();
@@ -38,6 +39,7 @@ public class Score_manager : MonoBehaviour
         run = true;
     }
     public void Clear_scr(){
+        scores.New_score(score);
         score = 0;
         view_score = 0;
         run = false;

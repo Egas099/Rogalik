@@ -23,18 +23,18 @@ public class Pauser : MonoBehaviour
     public void Pause_on(){
         pause = true;
         Time.timeScale = 0;
-        souds_manager.SetActive(false);
+        souds_manager.GetComponent<AudioListener>().enabled = false;
         pause_window.SetActive(true);
     }
     public void Pause_off(){
         pause = false;
         Time.timeScale = 1;
-        souds_manager.SetActive(true);
+        souds_manager.GetComponent<AudioListener>().enabled = true;
         pause_window.SetActive(false);
     }
     public void Return_main_menu(){
         pause = false;
-        souds_manager.SetActive(true);
+        souds_manager.GetComponent<AudioListener>().enabled = true;
         Time.timeScale = 1;
         GameObject.Find("logic").GetComponent<Generator>().ClearAll();
         pause_window.SetActive(false);
