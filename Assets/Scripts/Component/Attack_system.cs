@@ -45,6 +45,18 @@ public class Attack_system : MonoBehaviour { // Система атаки. Ос�
                     created_shell.GetComponent<Entity>().enable = true;
             }
     }
+    public void Fire(Vector3 position, Transform parent){ // Создаёт объект в position 
+        if ((last_fire_range + (6/entity.attack_speed)) < Time.time)
+            {
+                last_fire_range = Time.time;
+                if(entity.audio_range_attack!=null)
+                    entity.sounds_Manager.Play_request(entity.audio_range_attack);
+                created_shell = Instantiate(shell, parent, false);
+                created_shell.transform.position = position;
+                if (created_shell.GetComponent<Entity>() != null)
+                    created_shell.GetComponent<Entity>().enable = true;
+            }
+    }
     public void Fire(Vector3 position,Vector2 direction, string type){    // Выстреливает из position в сторону direction
         switch(type)
         {

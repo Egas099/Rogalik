@@ -131,42 +131,78 @@ public class Generator : MonoBehaviour
                 }
             }
         }
+        Creating_rooms();
+        Doors_calc();
+        GameObject.Find("Text_key").GetComponent<Text>().text = "X" + use_character.GetComponent<Entity>().number_keys;
+        gameObject.GetComponent<Checking_character_position>().Start();   
+    }
+    void Creating_rooms(){
+        for (int i = 0; i < xlen; i++)
+            for (int j = 0; j < ylen; j++)
+                if((map[i, j] != null) && (map[i, j] != ban))
+                    map[i, j] = Instantiate(map[i, j], new Vector3(i*8-24,j*5-15,1), Quaternion.identity);
+    }
+    void Doors_calc(){
+        GameObject room;
+        for (int i = 1; i < xlen-1; i++){
+            for (int j = 1; j < ylen-1; j++)
+            {
+                if((map[i, j] != null) && (map[i, j] != ban))
+                {
+                    room = map[i, j];
+                    if((map[i+1, j] == null) || (map[i+1, j] == ban)){
+                        Destroy(room.transform.Find("right_door").gameObject);
+                    }
+                    else
+                        if (map[i+1, j].GetComponent<Room_info>().room_name == "Bonus_room")
+                             room.GetComponent<Room_info>().Lock_door("right_door");
+                    if((map[i-1, j] == null) || (map[i-1, j] == ban)){
+                        Destroy( room.transform.Find("left_door").gameObject);
+                    }
+                    else
+                        if (map[i-1, j].GetComponent<Room_info>().room_name == "Bonus_room")
+                             room.GetComponent<Room_info>().Lock_door("left_door");
+                    if((map[i, j+1] == null) || (map[i, j+1] == ban)){
+                        Destroy( room.transform.Find("up_door").gameObject);
+                    }
+                    else
+                        if (map[i, j+1].GetComponent<Room_info>().room_name == "Bonus_room")
+                             room.GetComponent<Room_info>().Lock_door("up_door");
+                    if((map[i, j-1] == null) || (map[i, j-1] == ban)){
+                        Destroy( room.transform.Find("down_door").gameObject);
+                    }
+                    else
+                        if (map[i, j-1].GetComponent<Room_info>().room_name == "Bonus_room")
+                             room.GetComponent<Room_info>().Lock_door("down_door");
+                   
+                }
+            }
+        }
+    }
+    public void Doors_recalc(){
         for (int i = 0; i < xlen; i++){
             for (int j = 0; j < ylen; j++)
             {
                 if((map[i, j] != null) && (map[i, j] != ban))
                 {
-                    create_room = Instantiate(map[i, j], new Vector3(i*8-24,j*5-15,1), Quaternion.identity);
-                    if((map[i+1, j] == null) || (map[i+1, j] == ban)){
-                        Destroy(create_room.transform.Find("right_door").gameObject);
-                    }
-                    else
-                        if (map[i+1, j].GetComponent<Room_info>().room_name == "Bonus_room")
-                            create_room.GetComponent<Room_info>().Lock_door("right_door");
-                    if((map[i-1, j] == null) || (map[i-1, j] == ban)){
-                        Destroy(create_room.transform.Find("left_door").gameObject);
-                    }
-                    else
-                        if (map[i-1, j].GetComponent<Room_info>().room_name == "Bonus_room")
-                            create_room.GetComponent<Room_info>().Lock_door("left_door");
-                    if((map[i, j+1] == null) || (map[i, j+1] == ban)){
-                        Destroy(create_room.transform.Find("up_door").gameObject);
-                    }
-                    else
-                        if (map[i, j+1].GetComponent<Room_info>().room_name == "Bonus_room")
-                            create_room.GetComponent<Room_info>().Lock_door("up_door");
-                    if((map[i, j-1] == null) || (map[i, j-1] == ban)){
-                        Destroy(create_room.transform.Find("down_door").gameObject);
-                    }
-                    else
-                        if (map[i, j-1].GetComponent<Room_info>().room_name == "Bonus_room")
-                            create_room.GetComponent<Room_info>().Lock_door("down_door");
-                    map[i, j] = create_room;
+                    if((map[i+1, j] != null) && (map[i+1, j] != ban))
+                        if ((map[i+1, j].GetComponent<Room_info>().room_name == "Bonus_room") && (map[i+1, j].GetComponent<Room_info>().cleared == true))
+                            map[i, j].GetComponent<Room_info>().Unlock_door("right_door");
+
+                    if((map[i-1, j] != null)&& (map[i-1, j] != ban))
+                        if ((map[i-1, j].GetComponent<Room_info>().room_name == "Bonus_room") && (map[i-1, j].GetComponent<Room_info>().cleared == true))
+                            map[i, j].GetComponent<Room_info>().Unlock_door("left_door");
+
+                    if((map[i, j+1] != null)&& (map[i, j+1] != ban))
+                        if ((map[i, j+1].GetComponent<Room_info>().room_name == "Bonus_room") && (map[i, j+1].GetComponent<Room_info>().cleared == true))
+                            map[i, j].GetComponent<Room_info>().Unlock_door("up_door");
+
+                    if((map[i, j-1] != null)&& (map[i, j-1] != ban))
+                        if ((map[i, j-1].GetComponent<Room_info>().room_name == "Bonus_room") && (map[i, j-1].GetComponent<Room_info>().cleared == true))
+                            map[i, j].GetComponent<Room_info>().Unlock_door("down_door");
                 }
             }
         }
-        GameObject.Find("Text_key").GetComponent<Text>().text = "X" + use_character.GetComponent<Entity>().number_keys;
-        gameObject.GetComponent<Checking_character_position>().Start();   
     }
     void Clearing()
     {
