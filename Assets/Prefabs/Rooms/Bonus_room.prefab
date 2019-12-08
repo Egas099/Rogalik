@@ -14,6 +14,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -124,7 +125,7 @@ PrefabInstance:
     - target: {fileID: 58921076132770133, guid: 4007213faf7d3ae419ccfa1bb10bfb09,
         type: 3}
       propertyPath: cleared
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4550065561843109455, guid: 4007213faf7d3ae419ccfa1bb10bfb09,
         type: 3}

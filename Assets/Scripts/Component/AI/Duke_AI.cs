@@ -24,7 +24,7 @@ public class Duke_AI : MonoBehaviour
     {   
         if(entity.enable == true)
         {
-            entity.attack_system.Fire(transform.position);
+            entity.attack_system.Fire(transform.position, transform.parent);
             direction = new Vector2(0,0);
             direction += new Vector2(((target.position.x-transform.position.x)/speed),((target.position.y-transform.position.y)/speed));
             rb.AddForce(direction);

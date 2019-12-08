@@ -150,7 +150,7 @@ MonoBehaviour:
   audio_melee_attack: {fileID: 0}
   audio_low_health: {fileID: 0}
   audio_die: {fileID: 0}
-  die_obj: {fileID: 0}
+  die_obj: {fileID: 2919365524781038952, guid: af3ad385654457241a1411100da2d9cb, type: 3}
   sounds_Manager: {fileID: 0}
 --- !u!114 &2459568729771183727
 MonoBehaviour:

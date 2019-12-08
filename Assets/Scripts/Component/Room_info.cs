@@ -27,6 +27,8 @@ public class Room_info : MonoBehaviour
                 if(child.GetComponent<Button_collision>().click == false)
                     return;
             }
+            if (child.tag == "Consumables")
+                return;
         }
         if(room_name == "Boss_room"){
             Drop();
@@ -36,6 +38,8 @@ public class Room_info : MonoBehaviour
         if(room_name == "Monster_room")
             Drop();
         Open_door();
+        if(room_name == "Bonus_room")
+            GameObject.Find("logic").GetComponent<Generator>().Doors_recalc();
         
     }
     void Drop()
@@ -82,6 +86,14 @@ public class Room_info : MonoBehaviour
         {
             if((child.tag == "Door") && (child.name == door_name)){
                 child.GetComponent<Doors_collision>().Lock();
+            }
+        }
+    }
+    public void Unlock_door(string door_name){
+        foreach(Transform child in transform)
+        {
+            if((child.tag == "Door") && (child.name == door_name)){
+                child.GetComponent<Doors_collision>().Un_lock();
             }
         }
     }
