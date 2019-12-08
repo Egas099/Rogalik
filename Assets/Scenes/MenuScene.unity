@@ -1634,7 +1634,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &199708209
 Transform:
   m_ObjectHideFlags: 0
@@ -1725,7 +1725,7 @@ MonoBehaviour:
   - {fileID: 7167757685163279729, guid: 2b111c94c65ef4144ad046d97495a8a1, type: 3}
   - {fileID: 5926510752512937380, guid: 5fb2a7ed7bb58e84085cbf9fd0d4d855, type: 3}
   new_level: {fileID: 8300000, guid: 65c11a9a8f922c94f931ff8f9cc54f89, type: 3}
-  room_limit_bonus: 5
+  room_limit_bonus: 2
   room_limit_enemy: 5
   room_limit_trap: 2
 --- !u!114 &201918377
@@ -3476,7 +3476,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &573818774
 Transform:
   m_ObjectHideFlags: 0
