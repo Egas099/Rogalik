@@ -88,7 +88,7 @@ public class Attack_system : MonoBehaviour { // Система атаки. Ос�
 
         if ((entity.enable) && (melee_attack))
         {
-            if ((last_fire_melle + (6/entity.attack_speed))  < Time.time)    // Если с момента последней атаки прошлло больше времени, чем скорость атаки
+            if ((last_fire_melle + (6/entity.melee_attack_speed))  < Time.time)    // Если с момента последней атаки прошлло больше времени, чем скорость атаки
             {
                 switch (other.gameObject.tag){  // Приверяем с чем столкнулись
                     case "Player":

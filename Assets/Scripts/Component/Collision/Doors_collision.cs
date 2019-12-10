@@ -29,16 +29,16 @@ public class Doors_collision : MonoBehaviour // Перемещает игрок�
     void Skip_charcter(Vector3 pos, Transform tr){
         switch(name){
             case "up_door":
-            tr.position = new Vector3(pos.x,pos.y+1.8f,pos.z);
+            tr.position = new Vector3(pos.x,pos.y+2.6f,pos.z);
             break;
             case "down_door":
-            tr.position = new Vector3(pos.x,pos.y-1.8f,pos.z);
+            tr.position = new Vector3(pos.x,pos.y-2.6f,pos.z);
             break;
             case "left_door":
-            tr.position = new Vector3(pos.x-1.7f,pos.y,pos.z);
+            tr.position = new Vector3(pos.x-2.6f,pos.y,pos.z);
             break;
             case "right_door":
-            tr.position = new Vector3(pos.x+1.7f,pos.y,pos.z);
+            tr.position = new Vector3(pos.x+2.6f,pos.y,pos.z);
             break;
         }
         sounds_Manager.Play_request(aud_pass_through);

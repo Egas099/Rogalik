@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 2459568729771183726}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.031, z: -0.109}
-  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_LocalScale: {x: 1.1583, y: 1.1583, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -140,6 +140,7 @@ MonoBehaviour:
   health: 7
   damage: 5
   attack_speed: 10
+  melee_attack_speed: 0
   speed: 5
   number_keys: 0
   attack_system: {fileID: 7554829364944989271}
@@ -148,7 +149,6 @@ MonoBehaviour:
   audio_health_down: {fileID: 8300000, guid: 553391c93b307a14eb9740641bef6db3, type: 3}
   audio_range_attack: {fileID: 8300000, guid: 4d97b8072842c8544a5c6009a166cf56, type: 3}
   audio_melee_attack: {fileID: 0}
-  audio_low_health: {fileID: 0}
   audio_die: {fileID: 0}
   die_obj: {fileID: 2919365524781038952, guid: af3ad385654457241a1411100da2d9cb, type: 3}
   sounds_Manager: {fileID: 0}

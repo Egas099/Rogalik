@@ -19,9 +19,10 @@ public class Checking_character_position : MonoBehaviour //  Расчитыва�
     void Calc_pos() // Расчитывает центр в области(там находится комната), где находится персонаж
     {
         curent_ch_position = character.position;
-        curent_ch_position.x = Mathf.Round(curent_ch_position.x/8)*8;
-        curent_ch_position.y = Mathf.Round(curent_ch_position.y/5)*5;
+        curent_ch_position.x = Mathf.Round(curent_ch_position.x/10f)*10f;
+        curent_ch_position.y = Mathf.Round(curent_ch_position.y/6f)*6f;
         curent_ch_position = new Vector3(Mathf.Round(curent_ch_position.x),Mathf.Round(curent_ch_position.y),-2f);
+
         GameObject.Find("Main Camera").transform.position = curent_ch_position; // Попутно перемещаем камеру
     }
     public void Change_pos()    // Вызов метода происходит когда персонаж переходит в другую комнату

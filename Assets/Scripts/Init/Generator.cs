@@ -55,12 +55,6 @@ public class Generator : MonoBehaviour
         trap_room = Resources.LoadAll<GameObject>("TrapRooms");
         boss_room = Resources.LoadAll<GameObject>("BossRooms");
     }
-   
-    
-    void FixedUpdate() {
-        if (Input.GetKey(KeyCode.Q))
-            New_level();
-    }
     public void New_level(){
         Clearing();
         Generation();
@@ -140,7 +134,7 @@ public class Generator : MonoBehaviour
         for (int i = 0; i < xlen; i++)
             for (int j = 0; j < ylen; j++)
                 if((map[i, j] != null) && (map[i, j] != ban))
-                    map[i, j] = Instantiate(map[i, j], new Vector3(i*8-24,j*5-15,1), Quaternion.identity);
+                    map[i, j] = Instantiate(map[i, j], new Vector3(i*10f-30f,j*6f-18f,1), Quaternion.identity);
     }
     void Doors_calc(){
         GameObject room;

@@ -68,7 +68,7 @@ public class inputGame : MonoBehaviour
         }
 
         writer.Close();
-        Debug.Log(this + " сохранения настроек привязки клавиш: " + Path()); //Для проверки
+        // Debug.Log(this + " сохранения настроек привязки клавиш: " + Path()); //Для проверки
     }
 
     public bool GetKey(string name) { return Input.GetKey(FindKey(name)); }

@@ -8,7 +8,6 @@ public class Duke_AI : MonoBehaviour
     private Transform target;
     private Vector2 direction;
     private Rigidbody2D rb;
-    public GameObject hatch;
     private float speed;
     // Start is called before the first frame update
     void Start()

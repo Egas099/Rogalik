@@ -10,6 +10,7 @@ public class Entity : MonoBehaviour
     public float health;
     public float damage;
     public float attack_speed;
+    public float melee_attack_speed;
     public float speed;
     [HideInInspector]
     public int number_keys = 0;
@@ -21,7 +22,6 @@ public class Entity : MonoBehaviour
     public AudioClip audio_health_down;     // Получение урона
     public AudioClip audio_range_attack;    // Выстрел
     public AudioClip audio_melee_attack;    // Удар
-    public AudioSource audio_low_health;
     public AudioClip audio_die;
 
     public GameObject die_obj;
