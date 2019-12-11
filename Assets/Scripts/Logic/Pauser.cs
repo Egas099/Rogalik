@@ -22,14 +22,15 @@ public class Pauser : MonoBehaviour
     }
     public void Pause_on(){
         pause = true;
+        Cursor.visible = true;
         Time.timeScale = 0;
         souds_manager.GetComponent<AudioListener>().enabled = false;
         pause_window.SetActive(true);
     }
     public void Pause_off(){
-        Cursor.visible = false;
         pause = false;
         Time.timeScale = 1;
+        Cursor.visible = false;
         souds_manager.GetComponent<AudioListener>().enabled = true;
         pause_window.SetActive(false);
     }
