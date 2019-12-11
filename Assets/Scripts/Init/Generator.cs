@@ -35,6 +35,7 @@ public class Generator : MonoBehaviour
         }
         use_character = Instantiate(use_character, new Vector3(0,0,-0.5f), Quaternion.identity);
         gameObject.GetComponent<Checking_character_position>().Start();
+        Cursor.visible = false;
     } 
     public void ClearAll(){
         Clearing();

@@ -27,6 +27,7 @@ public class Pauser : MonoBehaviour
         pause_window.SetActive(true);
     }
     public void Pause_off(){
+        Cursor.visible = false;
         pause = false;
         Time.timeScale = 1;
         souds_manager.GetComponent<AudioListener>().enabled = true;
@@ -47,6 +48,7 @@ public class Pauser : MonoBehaviour
         enable = false;
         Time.timeScale = 0;
         end_window.SetActive(true);
+        Cursor.visible = true;
         GameObject.Find("Score_txt").GetComponent<Text>().text = "Ваш счет: " + GameObject.Find("logic").GetComponent<Score_manager>().score;
     }
 }

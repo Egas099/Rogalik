@@ -8,7 +8,7 @@ public class Highscores : MonoBehaviour
     public Text[] text_ui;
     public float[] scores;
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         Extract();
         Display();
