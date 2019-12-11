@@ -7939,7 +7939,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 688237572}
         m_MethodName: Display
         m_Mode: 1
         m_Arguments:
@@ -10598,7 +10598,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 688237572}
         m_MethodName: Clear_scores
         m_Mode: 1
         m_Arguments:
@@ -12220,7 +12220,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2136830350
 Transform:
   m_ObjectHideFlags: 0

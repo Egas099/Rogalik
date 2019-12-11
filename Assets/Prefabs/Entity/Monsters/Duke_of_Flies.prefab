@@ -55,7 +55,7 @@ MonoBehaviour:
   damage: 1
   attack_speed: 1
   melee_attack_speed: 6
-  speed: 3
+  speed: 5
   number_keys: 0
   attack_system: {fileID: 591120400436754195}
   audio_greeting: {fileID: 8300000, guid: 0756cacbc64ad394680bd179c129839b, type: 3}

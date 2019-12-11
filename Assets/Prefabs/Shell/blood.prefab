@@ -17,20 +17,35 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Consumables
       objectReference: {fileID: 0}
+    - target: {fileID: 6185281332426229092, guid: 021948378f0774244aa44a4136944571,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185281332426229092, guid: 021948378f0774244aa44a4136944571,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185281332426229092, guid: 021948378f0774244aa44a4136944571,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6185281332426229115, guid: 021948378f0774244aa44a4136944571,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.2524161
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6185281332426229115, guid: 021948378f0774244aa44a4136944571,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.24084847
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6185281332426229115, guid: 021948378f0774244aa44a4136944571,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6185281332426229115, guid: 021948378f0774244aa44a4136944571,
         type: 3}
@@ -75,21 +90,6 @@ PrefabInstance:
     - target: {fileID: -4571357295477769298, guid: 021948378f0774244aa44a4136944571,
         type: 3}
       propertyPath: damage
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6185281332426229092, guid: 021948378f0774244aa44a4136944571,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6185281332426229092, guid: 021948378f0774244aa44a4136944571,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6185281332426229092, guid: 021948378f0774244aa44a4136944571,
-        type: 3}
-      propertyPath: m_Color.b
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:

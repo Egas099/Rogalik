@@ -62,7 +62,7 @@ MonoBehaviour:
   audio_health_down: {fileID: 0}
   audio_range_attack: {fileID: 8300000, guid: 4d97b8072842c8544a5c6009a166cf56, type: 3}
   audio_melee_attack: {fileID: 0}
-  audio_die: {fileID: 0}
+  audio_die: {fileID: 8300000, guid: c74bc1ae043887c40806a8ae2de69b1f, type: 3}
   die_obj: {fileID: 2919365524781038952, guid: af3ad385654457241a1411100da2d9cb, type: 3}
   sounds_Manager: {fileID: 0}
 --- !u!114 &969599939892771327
