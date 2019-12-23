@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    
+    public string attack_type;
+    public float interval_hit;
+    private float last_hit;
     public bool enable = true;
     public float max_health;
     public float health;
@@ -12,8 +14,7 @@ public class Entity : MonoBehaviour
     public float attack_speed;
     public float melee_attack_speed;
     public float speed;
-    [HideInInspector]
-    public int number_keys = 0;
+
     [HideInInspector]
     public Attack_system attack_system;
 
@@ -33,64 +34,81 @@ public class Entity : MonoBehaviour
         hearts_UI = GameObject.Find("UI_heart").gameObject.GetComponent<UI_hearts>();
         sounds_Manager = GameObject.Find("SoundsManager").GetComponent<Sounds_manager>();
         attack_system = GetComponent<Attack_system>();
-        if(gameObject.tag == "Player")
+        if (gameObject.tag == "Player")
             hearts_UI.Change_hearts(health);
+        last_hit = Time.time;
     }
     void FixedUpdate()
     {
-        if(enable)
+        if (enable)
             Check_health();
     }
     void Check_health()
     {
         if (health <= 0)
-            Die();      
+            Die();
     }
-    public void Stat_changed(string what, float how_much){ // Метод изменяющий характеристики сущности
+    public void Stat_changed(string what, float how_much)
+    { // Метод изменяющий характеристики сущности
         switch (what)
         {
             case "health":
-            if(how_much < 0)
-            {
-                if(audio_health_down != null)
-                    sounds_Manager.Play_request(audio_health_down);
-            }
-            health += how_much;
-            if(gameObject.tag == "Player")
-                hearts_UI.Change_hearts(health);
-            break;
+                if ((how_much < 0) && (last_hit + interval_hit  < Time.time))
+                {
+                    last_hit = Time.time;
+
+                    health += how_much;
+
+                    if (gameObject.tag == "Player")
+                        hearts_UI.Change_hearts(health);
+
+                    if (audio_health_down != null)
+                        sounds_Manager.Play_request(audio_health_down);
+                    break;
+                }
+                if(how_much > 0)
+                {
+                    health += how_much;
+                    if (health > max_health)
+                        health = max_health;
+                    if (gameObject.tag == "Player")
+                        hearts_UI.Change_hearts(health);
+                }
+                break;
             case "damage":
-            damage += how_much;
-            break;
+                damage += how_much;
+                break;
             case "attack_speed":
-            attack_speed += how_much;
-            break;
+                attack_speed += how_much;
+                break;
             case "speed":
-            speed += how_much;
-            break;
-            default:break;
+                speed += how_much;
+                break;
+            default: break;
         }
     }
-    public void Enable_entity(){
-        if(enable == false)
+    public void Enable_entity()
+    {
+        if (enable == false)
         {
             enable = true;
-            if (audio_greeting!=null)
+            if (audio_greeting != null)
                 sounds_Manager.Play_request(audio_greeting);
         }
     }
-    void Die(){
+    void Die()
+    {
         enable = false;
         if (gameObject.tag == "Monster")
             GameObject.Find("logic").GetComponent<Score_manager>().Add_score(30);
-        if(audio_die!=null)
+        if (audio_die != null)
             sounds_Manager.Play_request(audio_die);
-        if(gameObject.GetComponent<Drop>())
+        if (gameObject.GetComponent<Drop>())
             gameObject.GetComponent<Drop>().Drop_(transform.position);
-        if(die_obj)
-            Instantiate(die_obj,transform.position,Quaternion.identity);
+        if (die_obj)
+            Instantiate(die_obj, transform.position, Quaternion.identity);
         if (gameObject.tag == "Player")
-                GameObject.Find("Pauser").GetComponent<Pauser>().The_end();
+            GameObject.Find("Pauser").GetComponent<Pauser>().The_end();
         Destroy(gameObject);
     }
 }

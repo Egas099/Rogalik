@@ -6,14 +6,10 @@ public class Heart_collision : MonoBehaviour
 {
     private Entity entity;
     private void OnCollisionEnter2D(Collision2D other) {
-        if (other.gameObject.tag == "Player")
+        if ((other.gameObject.tag == "Player")&&(other.gameObject.GetComponent<Entity>().health < other.gameObject.GetComponent<Entity>().max_health))
         {
-            entity = other.gameObject.GetComponent<Entity>();
-            if (entity.health < entity.max_health)
-            {
-                entity.Stat_changed("health",1f);
-                Destroy(gameObject);
-            }
+            other.gameObject.GetComponent<Entity>().Stat_changed("health",1);
+            Destroy(gameObject);
         }
     }
 }

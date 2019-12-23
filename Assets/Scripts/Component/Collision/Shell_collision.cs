@@ -43,7 +43,10 @@ public class Shell_collision : MonoBehaviour
     }
     void OnTriggerExit2D(Collider2D other) {
         if(other.gameObject.tag == "Room"){
-            sounds_Manager.Play_request(destroy_shell);
+            try{
+                sounds_Manager.Play_request(destroy_shell);
+            }
+            catch{}
             Destroy(gameObject);
         }
     }

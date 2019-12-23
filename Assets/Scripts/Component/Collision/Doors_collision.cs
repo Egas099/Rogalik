@@ -51,14 +51,15 @@ public class Doors_collision : MonoBehaviour // Перемещает игрок�
                 GameObject.Find("logic").GetComponent<Checking_character_position>().Change_pos();
                 return;
             }
-            if (locked && (other.gameObject.GetComponent<Entity>().number_keys > 0) && transform.parent.gameObject.GetComponent<Room_info>().cleared)
+            if (locked && transform.parent.gameObject.GetComponent<Room_info>().cleared)
             {
-                other.gameObject.GetComponent<Entity>().number_keys--;
-                amount.text = "x" + other.gameObject.GetComponent<Entity>().number_keys;
-                Un_lock();
-                Skip_charcter(other.transform.position, other.transform);
-                GameObject.Find("logic").GetComponent<Checking_character_position>().Change_pos();
-                return;
+                if(GameObject.Find("logic").GetComponent<Score_manager>().Remove_key())
+                {
+                    Un_lock();
+                    Skip_charcter(other.transform.position, other.transform);
+                    GameObject.Find("logic").GetComponent<Checking_character_position>().Change_pos();
+                    return;
+                }
             }
         }
     }

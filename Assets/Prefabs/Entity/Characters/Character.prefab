@@ -120,9 +120,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.15}
+  m_Offset: {x: 0, y: -0.23}
   serializedVersion: 2
-  m_Radius: 0.18
+  m_Radius: 0.083812065
 --- !u!114 &-4992286005762065151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,6 +135,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d58bf7e5591199943aee47c00326dfbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attack_type: single
+  interval_hit: 1.1
   enable: 1
   max_health: 7
   health: 7
@@ -142,7 +144,6 @@ MonoBehaviour:
   attack_speed: 10
   melee_attack_speed: 0
   speed: 5
-  number_keys: 0
   attack_system: {fileID: 7554829364944989271}
   audio_greeting: {fileID: 0}
   audio_move: {fileID: 8300000, guid: faefac709ee805343bc201bcd660fd9c, type: 3}
@@ -164,6 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0588da6c544f4a46b115ced4a239dd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chits: {fileID: 0}
 --- !u!114 &7554829364944989271
 MonoBehaviour:
   m_ObjectHideFlags: 0
